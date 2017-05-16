@@ -1,0 +1,13 @@
+--- index.orig.js	2017-05-17 00:30:11.000000000 +0800
++++ index.js	2017-05-17 01:05:06.000000000 +0800
+@@ -5,6 +5,10 @@
+       })
+     : b(a, !0);
+ })(this, function(a, b) {
++  // Fix in strict mode this point to a undefined
++  if (!a || a.document === void 0) {
++    a = window;
++  }
+   function c(b, c, d) {
+     a.WeixinJSBridge
+       ? WeixinJSBridge.invoke(b, e(c), function(a) {
